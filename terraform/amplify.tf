@@ -4,7 +4,7 @@ variable "tfstate_bucket" {}
 
 terraform {
   backend "s3" {
-    bucket = var.tfstate_bucket
+    bucket = "f-logic-test-s3"
     region = "ap-northeast-1"
     key = "terraform/terraform.tfstate"
     encrypt = true
