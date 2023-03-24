@@ -1,5 +1,17 @@
 variable "github_token" {}
 variable "github_owner" {}
+variable "tfstate_bucket" {}
+
+terraform {
+  backend "s3" {
+    bucket = var.tfstate_bucket
+    region = "ap-northeast-1"
+    key = "terraform/terraform.tfstate"
+    encrypt = true
+    shared_credentials_file = "~/.aws/credentials"
+  }
+}
+
 
 # Configure the AWS provider
 provider "aws" {
