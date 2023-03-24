@@ -1,6 +1,5 @@
 variable "github_token" {}
 variable "github_owner" {}
-variable "tfstate_bucket" {}
 
 terraform {
   backend "s3" {
