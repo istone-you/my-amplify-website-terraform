@@ -49,13 +49,13 @@ resource "aws_amplify_app" "website_app" {
       phases:
         preBuild:
           commands:
-            - n install 18
-            - npm install --unsafe-perm
+            - n 18
+            - npm install
         build:
           commands:
             - npm run build
       artifacts:
-        baseDirectory: build
+        baseDirectory: public
         files:
           - '**/*'
       cache:
@@ -65,7 +65,7 @@ resource "aws_amplify_app" "website_app" {
 
   environment_variables = {
     _CUSTOM_IMAGE = "aws/codebuild/standard:5.0",
-    _LIVE_UPDATES = "[{\"name\":\"Amplify CLI\",\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}]"
+    _LIVE_UPDATES = "[{\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}]"
   }
 }
 
