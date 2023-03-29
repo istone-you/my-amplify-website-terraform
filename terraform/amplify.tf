@@ -49,8 +49,7 @@ resource "aws_amplify_app" "website_app" {
       phases:
         preBuild:
           commands:
-            - npm install -g npm
-            - npm install --unsafe-perm
+            - npm install
         build:
           commands:
             - npm run build
@@ -64,8 +63,8 @@ resource "aws_amplify_app" "website_app" {
   EOT
 
   environment_variables = {
-    _CUSTOM_IMAGE = "aws/codebuild/amazonlinux2-x86_64-standard:3.0",
-    _LIVE_UPDATES = "[{\"name\":\"Amplify CLI\",\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}],{\"pkg\":\"node\",\"type\":\"nvm\",\"version\":\"16\"}]"
+    _CUSTOM_IMAGE = "aws/codebuild/standard:5.0",
+    _LIVE_UPDATES = "[{\"name\":\"Amplify CLI\",\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}],{\"name\":\"Node.js version\",\"pkg\":\"node\",\"type\":\"nvm\",\"version\":\"18\"}]"
   }
 }
 
