@@ -49,7 +49,7 @@ resource "aws_amplify_app" "website_app" {
       phases:
         preBuild:
           commands:
-            - npm install 
+            - npm install --unsafe-perm
         build:
           commands:
             - npm run build
