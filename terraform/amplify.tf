@@ -65,7 +65,7 @@ resource "aws_amplify_app" "website_app" {
 
   environment_variables = {
     _CUSTOM_IMAGE = "aws/codebuild/amazonlinux2-x86_64-standard:3.0",
-    _LIVE_UPDATES = "[{\"name\":\"Amplify CLI\",\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}]"
+    _LIVE_UPDATES = "[{\"name\":\"Amplify CLI\",\"pkg\":\"@aws-amplify/cli\",\"type\":\"npm\",\"version\":\"latest\"}],{\"pkg\":\"node\",\"type\":\"nvm\",\"version\":\"16\"}]"
   }
 }
 
